@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Soma de Números</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container row p-3">
+		<div class="col-4 ml-4 form-data">
+			<div class="p-3">
+				<h4>Simulador de Redes Ópticas Passivas</h4>
+				<hr>
+			</div>
+			<form>
+				
+					<div class="col p-3">
+						<label for="potenca">Potência (Pex):</label>
+						<div class="row">
+							<input type="number" class="form-control col-6" placeholder="4" id="potencia"
+								name="potencia">
+							<button type="button" class="col-4 ml-3" onclick="calcularPotencia()">Calcular</button>
+						</div>
+					</div>
+					<div class="col p-3">
+						<label for="sensibilidade">Sensibilidade:</label>
+						<div class="row">
+							<input type="number" class="form-control col-6" placeholder="26" id="sensibilidade"
+								name="sensibilidade">
+							<button type="button" class="col-4 ml-3" onclick="calcularSensibilidade()">Calcular</button>
+						</div>
+					</div>
+				
+				
+
+					<!--<label for="spliter">Spliter:</label>-->
+					<div class="col p-3">
+						<label for="spliter">Spliter:</label>
+						<div class="row">
+							<input class="form-control col-6" placeholder="6" type="number" id="spliter" name="spliter">
+							<button type="button" class="col-4 ml-3" onclick="calcularSpliter()">Calcular</button>
+						</div>
+					</div>
+					<!--<div class="row">
+							<select name="spliter" id="spliter" class="form-control col-6">
+								<option value="valor1">1:2</option>
+								<option value="valor2">1:4</option>
+								<option value="valor3">1:8</option>
+							</select>
+							<button type="button" class="col-4 ml-3" onclick="calcularSpliter()">Calcular</button>
+						</div>-->
+
+					<div class="col p-3">
+						<label for="coefAtenuacao">Coeficiente de Atenuação:</label>
+						<div class="row">
+							<input type="number" class="form-control col-6" placeholder="0.5" id="coefAtenuacao"
+								name="coefAtenuacao">
+							<button type="button" class="col-4 ml-3" onclick="calcularCoefAtenuacao()">Calcular</button>
+						</div>
+					</div>
+				
+				
+					<div class="col p-3">
+						<label for="conectores">Conectores:</label>
+						<div class="row">
+							<input type="number" class="form-control col-6" placeholder="4" id="conectores"
+								name="conectores">
+							<button type="button" class="col-4 ml-3" onclick="calcularConectores()">Calcular</button>
+						</div>
+					</div>
+					<div class="col p-3">
+						<label for="distancia">Distância Máxima: </label>
+						<div class="row">
+							<input type="number" class="form-control col-6" placeholder="28" id="distancia"
+								name="distancia">
+							<button type="button" class="col-4 ml-3" onclick="calcularDistancia()">Calcular</button>
+						</div>
+					</div>
+				
+			</form>
+		</div>
+		<div class="col-2 results p-4">
+			<div id="minhaDiv">Resultado</div>
+		</div>
+		<div class="col-9 results p-4">
+			<div id="minhaDiv">Topografia</div>
+			<br><br><br><br>
+			<div id="canvas"></div>
+		</div>
+		
+	</div>
+	<script src="./controller/controle.js"></script>
+	<script>
+		
+//*************Formula distancia:****************
+//distancia = (sensibilidade - Math.round(0.04*sensibilidade) - potencia - (conectores*0.25) - spliter )/atenuacaoCabo
+
+//*************Formula Spliter:****************
+//spliter = (sensibilidade - Math.round(0.04*sensibilidade) - potencia - (conectores*0.25) -  (distancia * atenuacaoCabo))/3
+//spliter = Math.pow(2,Math.round(spliter))
+
+//*************Formula Coeficiente de Atenuação:****************
+//
+//
+//
+//
+	</script>
+</body>
+
+</html>
